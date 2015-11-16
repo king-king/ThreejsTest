@@ -60,13 +60,17 @@
             var geometry = new THREE.Geometry();
             var material = new THREE.LineBasicMaterial( { vertexColors : true } );
             var color1 = new THREE.Color( 0x444444 ) ,
-                    color2 = new THREE.Color( 0xFF0000 );
+                    color2 = new THREE.Color( 0xFF0000 ) ,
+                    color3 = new THREE.Color( 0xFF00FF );
 
             var p1 = new THREE.Vector3( - 100 , 0 , 100 );
             var p2 = new THREE.Vector3( 100 , 0 , - 100 );
+            var p3 = new THREE.Vector3( 100 , 0 , 0 );
+
             geometry.vertices.push( p1 );
             geometry.vertices.push( p2 );
-            geometry.colors.push( color1 , color2 );
+            geometry.vertices.push( p3 );
+            geometry.colors.push( color1 , color2 , color3 );
 
             var line = new THREE.Line( geometry , material , THREE.LineSegments );
             scene.add( line );

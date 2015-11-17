@@ -17,13 +17,14 @@
     <script>
         var renderer;
         function initThree() {
-            width = document.getElementById( 'canvas-frame' ).clientWidth;
-            height = document.getElementById( 'canvas-frame' ).clientHeight;
+            var frame = document.getElementById( "canvas-frame" );
+            width = frame.clientWidth;
+            height = frame.clientHeight;
             renderer = new THREE.WebGLRenderer( {
                 antialias : true
             } );
             renderer.setSize( width , height );
-            document.getElementById( 'canvas-frame' ).appendChild( renderer.domElement );
+            frame.appendChild( renderer.domElement );
             renderer.setClearColor( 0xFFFFFF , 1.0 );
         }
 

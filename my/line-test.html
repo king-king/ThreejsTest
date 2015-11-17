@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <style>
+    </style>
 </head>
 <body>
-<script src="../lib/three.min.js"></script>
+<script src="../lib/three.js"></script>
 <script>
     (function () {
-        var render = THREE.WebGLRenderer();
-        
+        var renderer = new THREE.WebGLRenderer( { antialias : true } );
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera( 40 , 0.6 );
+
+        renderer.setSize( 600 , 600 );
+        document.body.appendChild( renderer.domElement );
+
+        camera.position.z = 10;
+
+        var geometry = new THREE.Geometry();
+        var material = new THREE.LineBasicMaterial( { color : 0xff0000 } );
+
+        geometry.vertices.push( new THREE.Vector3( - 100 , 100 , - 1000 ) );
+        geometry.vertices.push( new THREE.Vector3( 100 , 100 , - 1000 ) );
+
+        var line = new THREE.Line( geometry , material , THREE.LineSegments );
+        scene.add( line );
+
+        renderer.render( scene , camera );
+
+
     })();
 </script>
 </body>
